@@ -1,0 +1,18 @@
+[client]
+showWarningOnDirectoryDelete = false
+allowRunOnSave = true
+
+[logger]
+level = "info"
+
+[theme]
+primaryColor = "#3A7BD5"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+font = "sans serif"
+
+[server]
+port = 8501
+headless = true
+runOnSave = true
