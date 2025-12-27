@@ -2,11 +2,19 @@
 
 A comprehensive machine learning project for multi-class sentiment classification using deep text preprocessing and multiple ML algorithms. This project analyzes text reviews and classifies them into **Positive**, **Negative**, or **Neutral** sentiments with state-of-the-art preprocessing techniques.
 
+## 🚀 Live Demo
+
+### Try the App Now!
+**[Click here to use the Sentiment Analysis App](https://sentiment-analysis-s3chle3ar9fjixe4f6mzyk.streamlit.app/)**
+
+The app is live and ready to use! Simply enter your text review and get instant sentiment predictions.
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [Project Structure](#project-structure)
+- - [Live Demo](#-live-demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Dataset](#dataset)
@@ -299,6 +307,17 @@ Created by [sahil2003-ai](https://github.com/sahil2003-ai)
 ## ⭐ If you found this helpful, please consider giving it a star!
 
 ---
+
+## 🔗 Live App Link
+
+**Sentiment Analysis App is now live!**
+
+### Quick Access:
+- **App URL**: [https://sentiment-analysis-s3chle3ar9fjixe4f6mzyk.streamlit.app/](https://sentiment-analysis-s3chle3ar9fjixe4f6mzyk.streamlit.app/)
+- **Repository**: [GitHub Repository](https://github.com/sahil2003-ai/sentiment-analysis)
+
+Start analyzing sentiments right now! The app is fully functional and deployed on Streamlit Cloud.
+
 
 **Last Updated**: December 2025
 **Status**: Complete and Production-Ready
