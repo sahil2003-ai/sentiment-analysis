@@ -2,7 +2,77 @@
 
 A Python NLP project that processes text, assigns sentiment labels, trains classification models, and provides a Streamlit interface for new-text predictions.
 
-## Repository contents
+## 📌 Table of Contents
+
+- [Overview](#-overview)
+- [Problem Statement](#-problem-statement)
+- [Objectives](#-objectives)
+- [Features](#-features)
+- [Dataset](#-dataset)
+- [Tech Stack](#-tech-stack)
+- [Project Workflow](#-project-workflow)
+- [Repository Structure](#-repository-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Results and Insights](#-results-and-insights)
+- [Screenshots](#-screenshots)
+- [Challenges and Solutions](#-challenges-and-solutions)
+- [Limitations](#-limitations)
+- [Future Improvements](#-future-improvements)
+- [What I Learned](#-what-i-learned)
+- [Author](#-author)
+- [License](#-license)
+
+## 📖 Overview
+
+A Python NLP project that processes text, assigns sentiment labels, trains classification models, and provides a Streamlit interface for new-text predictions.
+
+## 🎯 Problem Statement
+
+The project frames an analytical or engineering question using the data, code, and outputs available in this repository. Findings should be interpreted according to the documented dataset, methodology, and limitations.
+
+## 🎯 Objectives
+
+- Understand the data and project question.
+- Document the implemented analytical or engineering workflow.
+- Report measurable results only where supported by repository evidence.
+- Make the work reproducible for reviewers.
+
+## ✨ Features
+
+The features below are limited to the work described in the existing repository documentation.
+
+### Workflow documented in the notebook
+
+- Load and inspect the spreadsheet.
+- Clean and normalize text, including stopword removal and lemmatization where configured.
+- Assign sentiment using TextBlob polarity thresholds in the notebook.
+- Convert text into features with a TF-IDF workflow and train candidate classifiers.
+- Select a model based on validation/test scores as implemented in the notebook.
+- Save a pipeline and use it for app inference.
+
+## 📂 Dataset
+
+Dataset details and numerical metrics are documented only where the existing repository files provide evidence. See the source files and notebook outputs for the precise schema and data provenance.
+
+## 🛠️ Tech Stack
+
+See the imports, dependency files, SQL scripts, and application code in the repository. Only technologies directly evidenced in those files should be listed as used.
+
+## 🔄 Project Workflow
+
+### Workflow documented in the notebook
+
+- Load and inspect the spreadsheet.
+- Clean and normalize text, including stopword removal and lemmatization where configured.
+- Assign sentiment using TextBlob polarity thresholds in the notebook.
+- Convert text into features with a TF-IDF workflow and train candidate classifiers.
+- Select a model based on validation/test scores as implemented in the notebook.
+- Save a pipeline and use it for app inference.
+
+## 🗂️ Repository Structure
+
+### Repository contents
 
 | File | Purpose |
 |---|---|
@@ -13,22 +83,25 @@ A Python NLP project that processes text, assigns sentiment labels, trains class
 | `requirements.txt` | Dependencies |
 | `DEPLOYMENT.md`, `LIVE_APP.md` | Deployment documentation |
 
-## Workflow documented in the notebook
+## ⚙️ Installation
 
-- Load and inspect the spreadsheet.
-- Clean and normalize text, including stopword removal and lemmatization where configured.
-- Assign sentiment using TextBlob polarity thresholds in the notebook.
-- Convert text into features with a TF-IDF workflow and train candidate classifiers.
-- Select a model based on validation/test scores as implemented in the notebook.
-- Save a pipeline and use it for app inference.
+### Prerequisites\n\nUse the runtime and dependencies required by the actual source files. Check the repository for a requirements or environment file before installing packages.\n\n### Setup\n\n\`\`\`bash\ngit clone https://github.com/sahil2003-ai/${repo}.git\ncd ${repo}\n\`\`\`
 
-## Metrics and verification status
+## ▶️ Usage
+
+Open the notebook or application entry point actually present in this repository and follow its input-path and dependency instructions. Do not assume an entry script or deployment URL that is not documented.
+
+## 📊 Results and Insights
+
+No numerical results were independently confirmed in the current README content. Add metrics only after reproducing the calculations from the repository data or saved outputs.
+
+## Additional Project Documentation\n\n### Metrics and verification status
 
 The notebook code includes a stratified five-fold cross-validation setup and intends to print the best model, cross-validation accuracy, and test accuracy. However, the relevant saved model-selection output and the workbook's exact row count, label distribution, and provenance could not be verified from the available connector output. This README therefore does not invent an accuracy score or class count.
 
 The notebook defines labels with TextBlob polarity cutoffs (> 0.1 positive, < −0.1 negative, otherwise neutral). Unless the dataset provides independent human-annotated sentiment labels, model metrics against labels generated by this rule measure agreement with the rule—not necessarily real-world sentiment accuracy. Document this distinction prominently.
 
-## Run the application
+### Run the application
 
 1. Create a Python environment.
 2. Install the dependencies in `requirements.txt`.
@@ -36,7 +109,33 @@ The notebook defines labels with TextBlob polarity cutoffs (> 0.1 positive, < �
 4. Launch the app using the actual entry point documented in `LIVE_APP.md` or `DEPLOYMENT.md`; if `sentiment.py` is the Streamlit entry point, run `streamlit run sentiment.py`.
 5. Test positive, negative, neutral, ambiguous, empty, and multilingual examples as applicable.
 
-## Validation priorities
+### Author
+
+Sahil Gaikwad · [GitHub](https://github.com/sahil2003-ai) · [LinkedIn](https://www.linkedin.com/in/sahil-gaikwad-a76b7224a/)\n## 🖼️ Screenshots
+
+No verified screenshot path was identified in the existing README. Add real screenshots from the repository only when the corresponding image files exist.
+
+## 🧩 Challenges and Solutions
+
+### Validation and reproducibility
+
+| Challenge | Approach |
+|---|---|
+| Metrics can be mistaken for independently verified results | Preserve the evidence status stated in the existing documentation. |
+| Data sources, filters, or execution environments may differ | Confirm source paths, schema, dependencies, and calculation definitions when rerunning. |
+| Screenshots and dashboard outputs may not be independently accessible | Only link to real files present in the repository. |
+
+## ⚠️ Limitations
+
+### Limitations
+
+- Numerical model results and dataset dimensions were not independently confirmed here.
+- Rule-generated labels can create circular evaluation if the model is tested only against those labels.
+- Text data may contain copyrighted or private content; verify redistribution permissions.
+
+## 🚀 Future Improvements
+
+### Validation priorities
 
 - Record the exact dataset dimensions, missing values, label counts, language, provenance, and license.
 - Confirm the train/test split occurs before fitting vectorizers and any transformations with learned state.
@@ -44,16 +143,19 @@ The notebook defines labels with TextBlob polarity cutoffs (> 0.1 positive, < �
 - Evaluate on independently annotated text if the goal is real-world sentiment performance.
 - Check that `pipeline.pkl` and the application apply matching text preprocessing.
 
-## Limitations
+## 📚 What I Learned
 
-- Numerical model results and dataset dimensions were not independently confirmed here.
-- Rule-generated labels can create circular evaluation if the model is tested only against those labels.
-- Text data may contain copyrighted or private content; verify redistribution permissions.
-
-## Skills demonstrated
+### Skills demonstrated
 
 Natural language processing, text preprocessing, TF-IDF, classification experiments, cross-validation, pipeline serialization, and Streamlit deployment.
 
-## Author
+## 👤 Author
 
-Sahil Gaikwad · [GitHub](https://github.com/sahil2003-ai) · [LinkedIn](https://www.linkedin.com/in/sahil-gaikwad-a76b7224a/)
+**Sahil Gaikwad**
+
+- GitHub: [sahil2003-ai](https://github.com/sahil2003-ai)
+- LinkedIn: [Sahil Gaikwad](https://www.linkedin.com/in/sahil-gaikwad-a76b7224a/)
+
+## 📄 License
+
+No verified license statement was found in the README. Check the repository's LICENSE file and the source dataset's reuse terms before redistribution.
