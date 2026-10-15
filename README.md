@@ -1,156 +1,59 @@
 # Sentiment Analysis: Text Classification App
 
-> Text classification project with a Streamlit demo for predicting sentiment from text.
+A Python NLP project that processes text, assigns sentiment labels, trains classification models, and provides a Streamlit interface for new-text predictions.
 
-![Status](https://img.shields.io/badge/Status-Portfolio--Project-blue)
+## Repository contents
 
-## 📌 Table of Contents
-
-- [Overview](#overview)
-- [Problem Statement](#problem-statement)
-- [Objectives](#objectives)
-- [Features](#features)
-- [Dataset](#dataset)
-- [Tech Stack](#tech-stack)
-- [Project Workflow](#project-workflow)
-- [Repository Structure](#repository-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Results and Insights](#results-and-insights)
-- [Screenshots](#screenshots)
-- [Challenges and Solutions](#challenges-and-solutions)
-- [Limitations](#limitations)
-- [Future Improvements](#future-improvements)
-- [What I Learned](#what-i-learned)
-- [Author](#author)
-- [License](#license)
-
-## 📖 Overview
-
-Text classification project with a Streamlit demo for predicting sentiment from text. This README documents the intended workflow and the files available in the repository. Verify all outputs against the current code and data before using them as evidence.
-
-## 🎯 Problem Statement
-
-Manually reviewing large amounts of text is time-consuming; sentiment classification can help summarize language patterns when evaluated carefully.
-
-## 🎯 Objectives
-
-- Prepare text for model input.
-- Compare implemented classification approaches.
-- Expose inference through an app.
-
-## ✨ Features
-
-- Sentiment_Analysis.ipynb notebook.
-- Saved pipeline and sentiment.py application code.
-- Streamlit demo and requirements file.
-
-## 📂 Dataset
-
-The repository includes `P597 DATASET.xlsx`, the notebook `Sentiment_Analysis.ipynb`, the saved `pipeline.pkl`, and `sentiment.py`. The original spreadsheet's exact row count, label distribution, source, language coverage, and license were not verified in this review; do not quote those details until the workbook is inspected.
-
-- **Task:** Text sentiment classification.
-- **Target:** Use the actual label column from the workbook/notebook; confirm the label names and class balance.
-- **Privacy/licensing:** Confirm permission to reuse text data and avoid exposing private user text.
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
+| File | Purpose |
 |---|---|
-| Python | Application and modelling |
-| pandas/scikit-learn | Data preparation and classification |
-| TF-IDF/NLP | Text representation where implemented |
-| Streamlit | Interactive demo |
+| `P597 DATASET.xlsx` | Text dataset |
+| `Sentiment_Analysis.ipynb` | Text processing and model experiments |
+| `sentiment.py` | Application / preprocessing logic |
+| `pipeline.pkl` | Saved text-classification pipeline |
+| `requirements.txt` | Dependencies |
+| `DEPLOYMENT.md`, `LIVE_APP.md` | Deployment documentation |
 
-## 🔄 Project Workflow
+## Workflow documented in the notebook
 
-1. Create an environment and install requirements.txt.
-2. Inspect P597 DATASET.xlsx, labels, class balance, and data provenance.
-3. Review Sentiment_Analysis.ipynb for preprocessing and feature extraction.
-4. Split data before fitting the vectorizer or any resampling operation.
-5. Train and compare only the models implemented in the notebook.
-6. Evaluate with per-class precision, recall, F1, and a confusion matrix on held-out data.
-7. Confirm pipeline.pkl and sentiment.py use the same preprocessing and model steps.
-8. Run the app and test new examples, recording common errors.
+- Load and inspect the spreadsheet.
+- Clean and normalize text, including stopword removal and lemmatization where configured.
+- Assign sentiment using TextBlob polarity thresholds in the notebook.
+- Convert text into features with a TF-IDF workflow and train candidate classifiers.
+- Select a model based on validation/test scores as implemented in the notebook.
+- Save a pipeline and use it for app inference.
 
-## 🗂️ Repository Structure
+## Metrics and verification status
 
-```text
-sentiment-analysis/
-├── P597 DATASET.xlsx
-├── Sentiment_Analysis.ipynb
-├── sentiment.py
-├── pipeline.pkl
-├── requirements.txt
-├── DEPLOYMENT.md
-└── LIVE_APP.md
-└── README.md
-```
+The notebook code includes a stratified five-fold cross-validation setup and intends to print the best model, cross-validation accuracy, and test accuracy. However, the relevant saved model-selection output and the workbook's exact row count, label distribution, and provenance could not be verified from the available connector output. This README therefore does not invent an accuracy score or class count.
 
-The list above highlights known project files and folders; inspect the repository for the complete current structure.
+The notebook defines labels with TextBlob polarity cutoffs (> 0.1 positive, < −0.1 negative, otherwise neutral). Unless the dataset provides independent human-annotated sentiment labels, model metrics against labels generated by this rule measure agreement with the rule—not necessarily real-world sentiment accuracy. Document this distinction prominently.
 
-## ⚙️ Installation
+## Run the application
 
-### Prerequisites
+1. Create a Python environment.
+2. Install the dependencies in `requirements.txt`.
+3. Verify the dataset path if rerunning the notebook.
+4. Launch the app using the actual entry point documented in `LIVE_APP.md` or `DEPLOYMENT.md`; if `sentiment.py` is the Streamlit entry point, run `streamlit run sentiment.py`.
+5. Test positive, negative, neutral, ambiguous, empty, and multilingual examples as applicable.
 
-- Install the tools listed in the Tech Stack that apply to this project.
-- For Python projects, use a Python version compatible with the dependencies actually imported by the code.
-- For Power BI projects, use Power BI Desktop.
+## Validation priorities
 
-### Setup
+- Record the exact dataset dimensions, missing values, label counts, language, provenance, and license.
+- Confirm the train/test split occurs before fitting vectorizers and any transformations with learned state.
+- Save per-class precision, recall, F1, confusion matrix, and validation strategy.
+- Evaluate on independently annotated text if the goal is real-world sentiment performance.
+- Check that `pipeline.pkl` and the application apply matching text preprocessing.
 
-git clone https://github.com/sahil2003-ai/sentiment-analysis.git; cd sentiment-analysis; python -m venv .venv; activate the environment; pip install -r requirements.txt
+## Limitations
 
-Do not run generic commands that do not match the files in this repository. Confirm the data paths, database dialect, and package versions before execution.
+- Numerical model results and dataset dimensions were not independently confirmed here.
+- Rule-generated labels can create circular evaluation if the model is tested only against those labels.
+- Text data may contain copyrighted or private content; verify redistribution permissions.
 
-## ▶️ Usage
+## Skills demonstrated
 
-Review LIVE_APP.md for the hosted link. For local use, inspect sentiment.py and run the actual Streamlit entry command documented in the repository.
+Natural language processing, text preprocessing, TF-IDF, classification experiments, cross-validation, pipeline serialization, and Streamlit deployment.
 
-## 📊 Results and Insights
+## Author
 
-### Verified functional check
-
-The saved notebook contains an example inference in which the input “This is an amazing product, I absolutely love it! Highly recommended.” is preprocessed and predicted as **positive**.
-
-This confirms only that the saved notebook recorded a working example; it is **not** a model-performance metric. A reproducible accuracy/F1 score and confusion matrix were not verified in this review. Add metrics only after rerunning the evaluation on a held-out test set and confirming that preprocessing/vectorization was fitted on training data only.
-
-## 🖼️ Screenshots
-
-No image files were confirmed for this repository during this update. If you have screenshots, upload them into an `images/` folder, then embed each real path here with a short caption. Do not use placeholder image paths.
-
-## 🧩 Challenges and Solutions
-
-| Challenge | Solution / validation approach |
-|---|---|
-| Text preprocessing consistency | Package the fitted preprocessing and classifier together and verify inference matches training. |
-| Class imbalance | If resampling is used, apply it to training data only. |
-
-## ⚠️ Limitations
-
-- Dataset dimensions, source, and class balance have not been verified from the workbook in this review.
-- A single positive example does not establish model accuracy.
-- Sentiment predictions can fail on sarcasm, context, domain-specific language, and unsupported languages.
-- Confirm the dataset's license and privacy constraints before redistribution.
-
-## 🚀 Future Improvements
-
-- [ ] Add an application screenshot under images/.
-- [ ] Document exact local run commands.
-- [ ] Publish a verified metrics table and error examples.
-
-## 📚 What I Learned
-
-- Text preprocessing and model evaluation.
-- Packaging inference pipelines for an app.
-
-## 👤 Author
-
-**Sahil Gaikwad**
-
-- GitHub: [sahil2003-ai](https://github.com/sahil2003-ai)
-- LinkedIn: [Sahil Gaikwad](https://www.linkedin.com/in/sahil-gaikwad-a76b7224a/)
-
-## 📄 License
-
-Check dataset terms and repository license before reuse.
+Sahil Gaikwad · [GitHub](https://github.com/sahil2003-ai) · [LinkedIn](https://www.linkedin.com/in/sahil-gaikwad-a76b7224a/)
