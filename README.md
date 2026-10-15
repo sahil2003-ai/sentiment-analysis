@@ -1,39 +1,31 @@
 # Sentiment Analysis: Text Classification App
 
-A text-classification project that processes written reviews and predicts sentiment labels. The repository documents a Streamlit demo and experiments with multiple traditional machine-learning models.
+A text-classification project with a Streamlit demo for predicting sentiment from text.
 
-## Live Demo
-[Open the Streamlit app](https://sentiment-analysis-s3chle3ar9fjixe4f6mzyk.streamlit.app/)
+## Live demo
+[Try the Streamlit app](https://sentiment-analysis-s3chle3ar9fjixe4f6mzyk.streamlit.app/)
 
-## Project Goals
-- Clean and normalize text for analysis.
-- Convert text into numerical features.
-- Compare classifiers for positive, negative, and neutral sentiment.
-- Present predictions through an interactive interface.
+## Step-by-step workflow
 
-## Pipeline Documented
-- Text cleanup, tokenization, and lemmatization
-- TF-IDF feature extraction
-- Class-imbalance handling with SMOTE
-- Experiments with Logistic Regression, Naive Bayes, SVM, Decision Tree, Random Forest, KNN, XGBoost, and MLP
-- Hyperparameter search using GridSearchCV
-- Streamlit-based inference interface
-
-Check the source code to confirm which steps and models are included in the current runnable pipeline.
+1. Create a Python environment and install dependencies from `requirements.txt`.
+2. Inspect `P597 DATASET.xlsx` and document its source, language coverage, target labels, and class balance.
+3. Open `Sentiment_Analysis.ipynb` and inspect the cleaning and preprocessing pipeline.
+4. Split the data into training and test sets before fitting the vectorizer or resampling.
+5. Transform text with the documented preprocessing and TF-IDF steps.
+6. Train and compare the models actually implemented in the notebook.
+7. Apply SMOTE only to the training data if used; never resample the test set.
+8. Evaluate on held-out data using per-class precision, recall, F1-score, and a confusion matrix.
+9. Confirm `pipeline.pkl` contains the same preprocessing and model steps used by `sentiment.py`.
+10. Test the app with new text and record common errors.
 
 ## Tools
-Python, scikit-learn, TF-IDF, imbalanced-learn/SMOTE where used, NLP preprocessing libraries, and Streamlit.
-
-## Reproducibility and Evaluation
-1. Document the dataset source, label definitions, and language coverage.
-2. Split data before fitting vectorizers or applying resampling.
-3. Apply SMOTE only to training data.
-4. Report per-class precision, recall, F1-score, confusion matrix, and a baseline.
-5. Save the fitted preprocessing and model pipeline together.
-6. Test the app with examples not used during training.
+Python, pandas, scikit-learn, NLP preprocessing, TF-IDF, Streamlit.
 
 ## Limitations
-Sentiment is context-dependent. Translation and language detection can introduce errors, and model performance may vary across topics, languages, and writing styles.
+Language detection or translation can introduce errors. Sentiment depends on context, sarcasm, domain, and writing style.
 
-## Recommended Improvements
-Add exact install/run instructions, dataset licensing, verified test metrics, screenshots, and a short error analysis. Avoid calling the approach state-of-the-art unless supported by comparative evidence.
+## Screenshots
+No standalone screenshot images were found in the repository root. Add an app screenshot under `images/` and embed it here.
+
+## Next improvements
+Document exact model metrics, dataset license, installation/run commands, and examples of incorrect predictions.
