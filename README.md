@@ -47,10 +47,11 @@ Manually reviewing large amounts of text is time-consuming; sentiment classifica
 
 ## 📂 Dataset
 
-P597 DATASET.xlsx is present. Verify the source, labels, language coverage, and license before describing the dataset.
+The repository includes `P597 DATASET.xlsx`, the notebook `Sentiment_Analysis.ipynb`, the saved `pipeline.pkl`, and `sentiment.py`. The original spreadsheet's exact row count, label distribution, source, language coverage, and license were not verified in this review; do not quote those details until the workbook is inspected.
 
-- **Privacy and licensing:** Check source terms and avoid publishing personal, sensitive, or restricted data.
-- **Preprocessing:** Follow the actual SQL/notebook/report implementation; do not assume cleaning steps or row counts that have not been verified.
+- **Task:** Text sentiment classification.
+- **Target:** Use the actual label column from the workbook/notebook; confirm the label names and class balance.
+- **Privacy/licensing:** Confirm permission to reuse text data and avoid exposing private user text.
 
 ## 🛠️ Tech Stack
 
@@ -108,13 +109,11 @@ Review LIVE_APP.md for the hosted link. For local use, inspect sentiment.py and 
 
 ## 📊 Results and Insights
 
-### Key Findings
+### Verified functional check
 
-Add verified held-out metrics and an error analysis. No performance figures are asserted here.
+The saved notebook contains an example inference in which the input “This is an amazing product, I absolutely love it! Highly recommended.” is preprocessed and predicted as **positive**.
 
-### Evaluation
-
-For analytics projects, reconcile key totals and document metric definitions. For ML projects, report the baseline, split strategy, relevant metrics, and held-out evaluation results. Do not include unverified scores or business impact claims.
+This confirms only that the saved notebook recorded a working example; it is **not** a model-performance metric. A reproducible accuracy/F1 score and confusion matrix were not verified in this review. Add metrics only after rerunning the evaluation on a held-out test set and confirming that preprocessing/vectorization was fitted on training data only.
 
 ## 🖼️ Screenshots
 
@@ -129,8 +128,10 @@ No image files were confirmed for this repository during this update. If you hav
 
 ## ⚠️ Limitations
 
-- Sentiment is context-dependent and may fail on sarcasm, domain-specific language, or unsupported languages.
-- Dataset provenance and license should be documented.
+- Dataset dimensions, source, and class balance have not been verified from the workbook in this review.
+- A single positive example does not establish model accuracy.
+- Sentiment predictions can fail on sarcasm, context, domain-specific language, and unsupported languages.
+- Confirm the dataset's license and privacy constraints before redistribution.
 
 ## 🚀 Future Improvements
 
